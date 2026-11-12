@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peringkat Militer Dunia 2026 | Global Firepower</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/Tampilan.css?v=5">
+</head>
+<body>
+    <header class="bar">
+        <a class="brand" href="Lobby.html">Kekuatan Militer Dunia</a>
+        <nav>
+            <a href="Lobby.html">Lobby</a>
+            <a href="https://www.globalfirepower.com/countries-listing.php" target="_blank" rel="noopener noreferrer">Sumber</a>
+        </nav>
+    </header>
+
+    <main class="halaman">
+        <h1>Peringkat militer dunia</h1>
+        <p class="catatan">10 besar dari 145 negara menurut PowerIndex Global Firepower 2026. Semakin kecil nilainya, semakin kuat kapabilitas konvensional negara itu. Panah menunjukkan tren peringkat dibanding tahun lalu.</p>
+        <div id="daftar"></div>
+    </main>
+
+    <script src="../../data/Data_negara.js"></script>
+    <script src="../../data/Video_bendera.js"></script>
+    <script>
+        const daftar = document.getElementById('daftar');
+        NEGARA.forEach((n) => {
+            const a = document.createElement('a');
+            a.className = 'baris';
+            a.href = '../../negara/' + n.slug + '.html';
+            a.innerHTML =
+                '<span class="angka">' + n.rank + '</span>' +
+                '<div class="bendera"><video loop muted playsinline preload="none" aria-label="Bendera ' + n.nama + '"><source src="../../gambar/animasi%20bendera/' + encodeURIComponent(n.video) + '" type="video/mp4"></video></div>' +
+                '<span class="nama">' + n.nama + '</span>' +
+                '<span class="idx"><small>PwrIndx</small>' + n.idx + '</span>' +
+                '<span class="tren" aria-label="' + n.tren + '">' + TREN[n.tren] + '</span>';
+            daftar.appendChild(a);
+        });
+        aktifkanVideoBendera();
+    </script>
+    <footer class="footer-nav"><nav aria-label="Navigasi bawah">@Ketipir2026</nav></footer>
+</body>
+</html>

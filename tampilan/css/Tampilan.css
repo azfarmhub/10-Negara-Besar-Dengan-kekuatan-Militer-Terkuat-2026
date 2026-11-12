@@ -1,0 +1,156 @@
+:root {
+    --o: #F54F1B;
+    --n: #1E223D;
+    --w: #FFFFFF;
+    --w70: rgba(255, 255, 255, 0.72);
+    --garis: rgba(255, 255, 255, 0.14);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100svh;
+    background: var(--o);
+    color: var(--n);
+    font-family: 'Barlow', 'Segoe UI', Tahoma, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+h1, h2, .brand, .angka {
+    font-family: 'Barlow Condensed', 'Arial Narrow', Impact, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+}
+
+a:focus-visible { outline: 3px solid var(--w); outline-offset: 3px; }
+
+.bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px clamp(20px, 5vw, 56px);
+}
+
+.brand { font-size: 1.25rem; font-weight: 700; color: var(--n); text-decoration: none; }
+.bar nav a { color: var(--n); font-weight: 700; margin-left: 20px; text-decoration: none; }
+.bar nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Lobby */
+.lobby { flex: 1; display: grid; align-content: center; padding: 0 clamp(20px, 5vw, 56px) 64px; max-width: 1100px; }
+.lobby h1 { margin: 0; color: var(--w); font-size: clamp(3.4rem, 14vw, 9.5rem); line-height: 0.88; font-weight: 800; }
+.lobby p { margin: 28px 0 32px; max-width: 34ch; color: var(--n); font-size: 1.2rem; font-weight: 600; }
+
+.tombol {
+    display: inline-block;
+    padding: 16px 32px;
+    background: var(--n);
+    color: var(--w);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+.tombol:hover { transform: translateY(-2px); background: #2b3057; }
+
+/* Daftar */
+.halaman { max-width: 920px; margin: 0 auto; padding: 8px clamp(20px, 5vw, 32px) 64px; }
+.halaman h1 { margin: 0 0 8px; color: var(--w); font-size: clamp(2.6rem, 9vw, 5rem); line-height: 0.95; font-weight: 800; }
+.catatan { margin: 0 0 28px; max-width: 70ch; font-weight: 600; }
+.catatan a { color: var(--n); }
+
+.baris {
+    display: grid;
+    grid-template-columns: 56px 72px minmax(0, 1fr) auto 28px;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 18px;
+    margin-bottom: 8px;
+    background: var(--n);
+    color: var(--w);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+.baris:hover, .baris:focus-visible { background: var(--w); color: var(--n); }
+.baris .angka { font-size: 2.2rem; font-weight: 800; line-height: 1; }
+.baris .nama { font-size: 1.15rem; font-weight: 700; }
+.baris .idx { font-variant-numeric: tabular-nums; font-weight: 600; text-align: right; }
+.baris .idx small { display: block; font-size: 0.7rem; opacity: 0.7; font-weight: 500; }
+.tren { color: var(--o); font-size: 1.3rem; font-weight: 800; text-align: center; }
+
+.bendera { width: 72px; height: 48px; border-radius: 4px; overflow: hidden; background: rgba(255, 255, 255, 0.1); }
+.bendera video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Detail */
+.panel { background: var(--n); color: var(--w); border-radius: 8px; padding: clamp(24px, 5vw, 48px); }
+.panel .atas { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; }
+.panel .bendera { width: 150px; height: 100px; }
+.panel h1 { margin: 0; font-size: clamp(2.4rem, 8vw, 4.4rem); line-height: 0.95; font-weight: 800; }
+.panel .sub { margin: 6px 0 0; color: var(--w70); }
+.panel .sub b { color: var(--o); }
+
+.seksi { margin-top: 36px; }
+.seksi h2 { margin: 0 0 14px; padding-left: 12px; border-left: 5px solid var(--o); font-size: 1.6rem; font-weight: 700; }
+.gambar-seksi { display: block; width: 100%; max-height: 280px; margin: 0 0 14px; border-radius: 6px; object-fit: cover; }
+.stat { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 10px; margin: 0; }
+.stat div { padding: 14px 16px; border: 1px solid var(--garis); border-radius: 6px; }
+.stat dt { color: var(--w70); font-size: 0.85rem; }
+.stat dd { margin: 4px 0 0; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 1.9rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.kosong { margin-top: 28px; padding: 18px; border: 1px dashed var(--w70); border-radius: 6px; color: var(--w70); }
+.sumber { margin: 32px 0 0; color: var(--w70); font-size: 0.85rem; }
+.sumber a { color: var(--w); }
+
+.navigasi { display: flex; justify-content: space-between; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+.navigasi a { color: var(--n); font-weight: 700; }
+
+.footer-nav {
+    margin-top: auto;
+    padding: 18px clamp(20px, 5vw, 56px);
+    background: var(--n);
+    color: var(--w);
+    text-align: center;
+    font-weight: 700;
+}
+
+@media (max-width: 560px) {
+    .bar { gap: 8px; padding: 14px 16px; }
+    .brand { font-size: 1.1rem; line-height: 1.15; }
+    .bar nav a { margin-left: 12px; }
+    .halaman { padding: 12px 16px 40px; }
+    .halaman h1 { font-size: clamp(2.2rem, 10vw, 2.8rem); }
+    .baris { grid-template-columns: 32px 48px minmax(0, 1fr) auto; gap: 8px; padding: 10px; }
+    .baris .angka { font-size: 1.5rem; }
+    .baris .nama { font-size: 1rem; line-height: 1.2; }
+    .baris .idx { font-size: 0.9rem; }
+    .baris .idx small { font-size: 0.65rem; }
+    .bendera { width: 48px; height: 32px; }
+    .baris .tren { display: none; }
+    .bar nav a[href^="https://"] { display: none; }
+    .lobby { padding: 24px 16px 40px; }
+    .lobby h1 { font-size: clamp(3rem, 13vw, 4.2rem); }
+    .lobby p { margin: 20px 0 24px; font-size: 1.05rem; }
+    .tombol { padding: 14px 24px; }
+    .panel { padding: 20px; }
+    .panel .atas { gap: 16px; margin-bottom: 24px; }
+    .panel .bendera { width: 112px; height: 75px; }
+    .panel h1 { font-size: clamp(2.2rem, 10vw, 3rem); }
+    .seksi { margin-top: 28px; }
+    .seksi h2 { font-size: 1.35rem; }
+    .gambar-seksi { max-height: 200px; }
+    .stat dd { font-size: 1.65rem; }
+    .sumber { line-height: 1.55; overflow-wrap: anywhere; }
+    .navigasi { margin-top: 20px; gap: 8px; }
+    .navigasi a { display: inline-flex; min-height: 44px; align-items: center; }
+    .footer-nav { padding-bottom: calc(18px + env(safe-area-inset-bottom)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}
